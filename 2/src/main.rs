@@ -24,6 +24,7 @@ fn parse_input(input: String) -> Vec<std::ops::RangeInclusive<u64>> {
 	let lines = input.split(',');
 	let mut ranges: Vec<std::ops::RangeInclusive<u64>> = vec![];
 	for line in lines {
+		println!("{line}");
 		// get the first number
 		let lhs = line.split('-').next().unwrap().parse::<u64>().unwrap();
 		// get the second number
@@ -31,10 +32,12 @@ fn parse_input(input: String) -> Vec<std::ops::RangeInclusive<u64>> {
 			.split('-')
 			.nth(1)
 			.unwrap()
+			.trim()
 			.parse::<u64>()
-			.unwrap_or_else();
+			.unwrap();
 		// combine them to a range
 		let range = lhs..=rhs;
+		println!("{range:#?}");
 		ranges.push(range);
 	}
 	ranges
