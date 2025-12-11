@@ -2,7 +2,7 @@ use fancy_regex::Regex;
 
 fn main() {
 	let input = std::fs::read_to_string("input.txt").expect("Failed to read from file: 'input.txt'");
-	let rgx = Regex::new(r"^([1-9]\d*)\1$").unwrap();
+	let rgx = Regex::new(r"^([1-9]\d*)\1+$").unwrap();
 	let ranges = parse_input(input);
 	let mut password: u64 = 0;
 	for range in ranges {
